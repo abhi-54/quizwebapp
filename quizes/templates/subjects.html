@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Select Subject
+{% endblock title %}
+
+{% block content %}
+
+<style>
+.blur{
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(1px);
+  background: #dcdcdc;
+  font-size: large;
+  font-weight: bolder;
+}
+.blur a {
+    pointer-events: none;
+}
+</style>
+
+<div class="m-4">
+    <h4 class="text-dark">Subjects</h4>
+    <div class="row mt-1">
+        {% for subject in allowedSub %} 
+            <div class="col-xl-3 col-md-6 p-3"> 
+              <div class="card shadow p-3">
+               <p id="demo"> <a href = "/question/show/{{subject.pk}}/" name = "{{subject}}" onclick="doClick()"; return false;>{{subject}}</a>
+               </p> </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mt-1"> 
+        <!--Blur this content-->
+         {% for nsub in notAllowedSub %}
+            <div class="col-xl-3 col-md-6 p-3"> 
+              <div class="card shadow p-3 blur">
+                <a href = "" name = "{{subject}}">{{nsub}}</a>
+              </div>
+            </div>
+        {% endfor %}     
+    </div>  
+</div>
+
+{% endblock content %}

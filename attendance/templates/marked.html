@@ -1,0 +1,14 @@
+{% extends 'base_quiz_panel.html' %}
+
+{% load static %}
+{% block title %} Marked Attendance {% endblock title %}
+
+{% block content %}
+
+<div class="alert alert-primary" role="alert">
+  <h3 class="text-black">Attendance of Class {{ std }} - {{ subject }} Marked Successfully!</h3>
+  <p class="text-black">Date: {{ date }}</p>
+  <p class="text-black">Total Present: {{ n_present }} / {{ n_total }}</p>
+</div>
+
+{% endblock content %}

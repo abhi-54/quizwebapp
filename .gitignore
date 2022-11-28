@@ -1,0 +1,6 @@
+*.pyc
+*.gz
+info.txt
+staticfiles/*
+.vscode
+db.sqlite3

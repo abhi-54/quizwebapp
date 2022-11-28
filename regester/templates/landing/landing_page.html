@@ -1,0 +1,161 @@
+{% extends 'landing/base_out.html' %}
+{% load static %}
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block content %}
+<style>
+.section-content .row {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.reveal.active{
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.imgbox {
+  background-color: red;
+}
+</style>
+
+<div class="container">
+  <div class="text-center">
+    <img src="{% static 'regester/images/quiz_img_login.png' %}" class="rounded" alt="Quiz App Logo" style="width: 50%;">
+  </div>
+</div>
+<div class="container my-5">
+  <p class="text-black font-weight-bold h3 mb-5">
+    Quiz App
+  </p>
+    <div class="row reveal">
+      <div class="col-xl-6 col-md-6 mb-5 imgbox">
+        <div class="card card-left shadow h-100 p-2">
+          <div class="card-body">
+            <img src="{% static 'landing/images/register_std_ref.jpg' %}" alt="Register & Referrel" class="card-img-top">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-6 mb-5 textbox">
+        <div class="card card-right h-100 p-2">
+          <div class="card-body">
+            <ul>
+              <li style="list-style: none;">
+                <a href="/reges/" class="btn btn-outline-danger">Click here to Create an Account</a>
+              </li>
+              <li>Register Class</li>
+              <li>Register using Referrel Code to earn reward points</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="h-line mb-5 reveal">
+    
+    <div class="row reveal">
+      <div class="col-xl-6 col-md-6 mb-5 textbox">
+        <div class="card card-right h-100 p-2">
+          <div class="card-body">
+            <p class="text-black">Dashboard when Student logs in</p>
+            <ul>
+              <li>Easy Navigation Menu</li>
+              <li>Chart displaying summary of last 10 quizes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-6 mb-5 imgbox">
+        <div class="card card-left shadow h-100 p-2">
+          <div class="card-body">
+            <img src="{% static 'landing/images/quiz_app_dashboard.jpg' %}" alt="Student Dashboard" class="card-img-top">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="h-line mb-5 reveal">
+
+    <div class="row reveal">
+      <div class="col-xl-6 col-md-6 mb-5 imgbox">
+        <div class="card card-left shadow h-100 p-2">
+          <div class="card-body">
+            <img src="{% static 'landing/images/quiz_app_profile.jpg' %}" alt="Student Profile" class="card-img-top">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-6 mb-5 textbox">
+        <div class="card card-right h-100 p-2">
+          <div class="card-body">
+            <ul>
+              <li>Student Profile Page</li>
+              <li>Get the Referrel Code from here to invite your connections</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="h-line mb-5 reveal">
+
+    <div class="row reveal">
+      <div class="col-xl-6 col-md-6 mb-5 textbox">
+        <div class="card card-right h-100 p-2">
+          <div class="card-body">
+            <ul>
+              <li>View result of all the quizzes attempted in a tabular manner</li>
+              <li>Analyze the results of last 10 quizes in Bar, Line & Pie Charts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-6 mb-5 imgbox">
+        <div class="card card-left shadow h-100 p-2">
+          <div class="card-body">
+            <img src="{% static 'landing/images/quiz_app_result.jpg' %}" alt="Student Result" class="card-img-top">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="h-line">
+    
+</div>
+
+<script type="text/javascript">
+  window.addEventListener('scroll', reveal);
+
+  function reveal(){
+    var reveals = document.querySelectorAll('.reveal');
+
+    for(var i = 0; i < reveals.length; i++){
+
+      var windowheight = window.innerHeight;
+      var revealtop = reveals[i].getBoundingClientRect().top;
+      var revealpoint = 150;
+
+      if(revealtop < windowheight - revealpoint){
+        reveals[i].classList.add('active');
+      }
+      else{
+        reveals[i].classList.remove('active');
+      }
+    }
+  }
+</script>
+{% endblock content %}

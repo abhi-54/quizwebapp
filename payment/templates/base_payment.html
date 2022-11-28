@@ -1,0 +1,26 @@
+{% extends 'base_quiz_panel.html' %}
+{% block title %}Payment Alternative{% endblock %}
+{% block content %}
+{% load static %}
+
+<style>
+
+</style>
+
+<h3 class="text-black mb-4">
+  Payment Alternative
+</h3>
+
+<div class="container paydiv mt-5">
+  {% if request.path == '/payment/' %}
+  <ul class="mt-3 anchor">
+    <li>
+      <a href="/payment/users/">View All Users</a>
+    </li>
+    <li>
+      <a href="/payment/class/">View Class-wise</a>
+    </li>
+  </ul>
+  {% endif %}
+</div>
+{% endblock %}
